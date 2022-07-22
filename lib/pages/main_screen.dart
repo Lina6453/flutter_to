@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -7,13 +8,16 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.grey[900],
         appBar: AppBar(
-        title: Text('Todo list'),
-        centerTitle: true,
+          title: Text('Todo list'),
+          centerTitle: true,
+
       ),
       body: Column (
       children: [
-        Text('MainScreen'),
-        ElevatedButton(onPressed: () {}, child: Text('Follow next'))
+        Text('MainScreen', style: TextStyle(color: Colors.white),),
+        ElevatedButton(onPressed: () {
+          Navigator.pushReplacementNamed(context, '/todo');
+        }, child: Text('Follow next'))
       ],
     )
     );

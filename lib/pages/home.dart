@@ -20,6 +20,16 @@ class _HomeState extends State<Home> {
     todoList.addAll(['Buy milk', 'Wash dishes', 'Купить картошку']);
   }
 
+  void _menuOpen () {
+    Navigator.of(context).push(
+      MaterialPageRoute (builder: (BuildContext context) {
+        return Scaffold(
+          appBar: AppBar( title: Text("Menu"),),
+          body: Text("Main menu"),
+        );
+    })
+    );
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +37,11 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Todo list'),
         centerTitle: true,
+        actions: [
+          IconButton(
+              icon: Icon(Icons.menu_outlined),
+              onPressed: _menuOpen),
+        ],
       ),
       body: ListView.builder(
           itemCount: todoList.length,
