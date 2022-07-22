@@ -10,6 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  late String _userToDo;
   List todoList = [];
 
   @override
@@ -55,7 +56,35 @@ class _HomeState extends State<Home> {
            },
            );
           }
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        onPressed: () {
+          showDialog(context: context, builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Добавить элемент'),
+              content: TextField(
+                onChanged: (String value) {
+                  _userToDo = value;
+            },
+            ),
+              actions: [
+                ElevatedButton(onPressed: () {
+                  setState(() {
+                    todoList.add(_userToDo);
+                  });
+                  Navigator.of(context).pop();
+                }, child: Text('Add'))
+              ],
+            );
+          });
+
+        },
+        child: Icon(
+          Icons.add_box,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
