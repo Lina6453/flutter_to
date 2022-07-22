@@ -25,7 +25,16 @@ class _HomeState extends State<Home> {
       MaterialPageRoute (builder: (BuildContext context) {
         return Scaffold(
           appBar: AppBar( title: Text("Menu"),),
-          body: Text("Main menu"),
+          body: Row(
+            children: [
+              ElevatedButton(onPressed: () {
+                Navigator.pop(context);
+
+              }, child: Text("Main")),
+              Padding(padding: EdgeInsets.only(left: 15)),
+              Text("Our simple menu")
+            ],
+          ),
         );
     })
     );
