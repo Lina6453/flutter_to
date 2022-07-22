@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
             children: [
               ElevatedButton(onPressed: () {
                 Navigator.pop(context);
-
+                Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
               }, child: Text("Main")),
               Padding(padding: EdgeInsets.only(left: 15)),
               Text("Our simple menu")
